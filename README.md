@@ -19,8 +19,7 @@ SECRET="YOUR_DISCORD_APP_SECRET"
 TOKEN="YOUR_DISCORD_APP_TOKEN"
 DB_NAME="NAME_OF_THE_LOCAL_SQLite3_DB" # Any name is ok, the SQLite3 database file will be created using this name 
 ```
-
-WAWNING: By default, `python 3.9` will be used, if you want to use a diferent version just modify the `Pipfile` or specify it to `pipenv` with the `--python` flag (must be 3.6 or above, you can check your version with `python3 --version`)
+⚠ WARNING ⚠ By default, `python 3.9` will be used, if you want to use a diferent version just modify the `Pipfile` or specify it to `pipenv` with the `--python` flag (must be 3.6 or above, you can check your version with `python3 --version`)
 ```bash
 # Install pipenv
 python3 -m pip install pipenv
