@@ -1,4 +1,4 @@
-## Welcome to Jotun bot
+## Welcome to Jotun bot - ᛃᛟᛏᚢᚾ ᛒᛟᛏ
 
 Jotun is a discord bot that currently is a WIP
 
