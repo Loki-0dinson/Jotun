@@ -1,4 +1,4 @@
-## Welcome to Jotun bot - ᛃᛟᛏᚢᚾ ᛒᛟᛏ
+# Welcome to Jotun bot - ᛃᛟᛏᚢᚾ ᛒᛟᛏ
 
 Jotun is a discord bot that currently is a WIP
 
@@ -6,7 +6,6 @@ Jotun is a discord bot that currently is a WIP
 ```bash
 # Clone the repo
 $ git clone https://github.com/Loki-0dinson/Jotun.git
-
 $ cd ./Jotun
 ```
 
@@ -39,7 +38,7 @@ $ python main.py
 ⚠ WARNING ⚠ By default, `python 3.9` will be used, if you want to use a diferent version just modify the `Pipfile` or
 specify it to `pipenv` with the `--python` flag (must be 3.6 or above, you can check your version with `python3 --version`)
 
-# Requirements
+## Requirements
 | Name  | Version | Package | Dev-Package |
 | ------------- |:-------------:|:-------------:|:-------------:|
 | nextcord    | ~=2.0.0a2 | ✅ |  |
