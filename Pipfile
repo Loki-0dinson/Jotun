@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-"discord.py" = "1.7.3"
 aiosqlite = "0.17.0"
+nextcord = "~=2.0.0a2"
 
 [dev-packages]
 autopep8 = "*"

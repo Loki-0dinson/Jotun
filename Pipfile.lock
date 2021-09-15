@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "409dc7b323f766fc5aa01afc01aa380f7bf66979ce24c208174fb19b6f021231"
+            "sha256": "cfdd95b9503c0bd993ee4536bdb608859853d60db8b8bbde7156edf7b718dafe"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -91,14 +91,6 @@
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
             "version": "==4.0.0"
         },
-        "discord.py": {
-            "hashes": [
-                "sha256:462cd0fe307aef8b29cbfa8dd613e548ae4b2cb581d46da9ac0d46fb6ea19408",
-                "sha256:c6f64db136de0e18e090f6752ea68bdd4ab0a61b82dfe7acecefa22d6477bb0c"
-            ],
-            "index": "pypi",
-            "version": "==1.7.3"
-        },
         "idna": {
             "hashes": [
                 "sha256:14475042e284991034cb48e06f6851428fb14c4dc953acd9be9a5e95c7b6dd7a",
@@ -150,13 +142,20 @@
             "markers": "python_version >= '3.6'",
             "version": "==5.1.0"
         },
+        "nextcord": {
+            "hashes": [
+                "sha256:fcae92330105d817ac35f0de35da0bf6b1ad880d63515f12c812a621c4c76fe8"
+            ],
+            "index": "pypi",
+            "version": "==2.0.0a2"
+        },
         "typing-extensions": {
             "hashes": [
-                "sha256:0ac0f89795dd19de6b97debb0c6af1c70987fd80a2d62d1958f7e56fcc31b497",
-                "sha256:50b6f157849174217d0656f99dc82fe932884fb250826c18350e159ec6cdf342",
-                "sha256:779383f6086d90c99ae41cf0ff39aac8a7937a9283ce0a414e5dd782f4c94a84"
+                "sha256:49f75d16ff11f1cd258e1b988ccff82a3ca5570217d7ad8c5f48205dd99a677e",
+                "sha256:d8226d10bc02a29bcc81df19a26e56a9647f8b0a6d4a83924139f4a8b01f17b7",
+                "sha256:f1d25edafde516b146ecd0613dabcc61409817af4766fbbcfb8d1ad4ec441a34"
             ],
-            "version": "==3.10.0.0"
+            "version": "==3.10.0.2"
         },
         "yarl": {
             "hashes": [
@@ -228,10 +227,10 @@
         },
         "executing": {
             "hashes": [
-                "sha256:77ed91874d321338865ea2bf7337636a5de8e9a7f8323527d29c4fad2a1b48f7",
-                "sha256:7ef8637519b0c01b69c4a1785a0d13dcc2cf9f0d078804268887edad2b4f26d1"
+                "sha256:cfaa61564eff6e7a3afda98ea0ba7c646171d9e325203a159bf29a3c2438c129",
+                "sha256:f3dd49578371a633bd1ff5ca0af4afad65e6d549a06eb35ef20df198eced58ef"
             ],
-            "version": "==0.8.0"
+            "version": "==0.8.1"
         },
         "icecream": {
             "hashes": [
