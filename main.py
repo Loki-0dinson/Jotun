@@ -1,16 +1,24 @@
-import asyncio
+# -*- coding: utf-8 -*-
+
+"""
+Database class for the bot.
+"""
+
 import logging
 
-from discord import Client as DiscordClient, Game
-from discord.ext import commands
+from nextcord import Game
+from nextcord.ext import commands
+from nextcord.ext.commands.errors import CommandNotFound
 
-from core.settings import TOKEN, DEBUG, LOG_LEVEL, LOG_FORMAT, LOG_DATE_FORMAT
-from core.utils import loginfo, logwarn, logcritical
-from db import DB as db
+from core.settings import TOKEN, DEBUG, LOG_LEVEL, LOG_FORMAT, \
+    LOG_DATE_FORMAT, COGS
 
 if DEBUG:
-    from icecream import ic
+    from icecream import ic  # pylint: disable=W0611
 
+
+###############################################################################
+# Logging
 logger = logging.getLogger(__name__)
 logger.setLevel(LOG_LEVEL)
 formatter = logging.Formatter(
@@ -19,8 +27,25 @@ handler = logging.StreamHandler()
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
+# Bot stuff
+bot = commands.Bot(command_prefix='$')
+###############################################################################
 
-def get_prefix(bot, message):
+
+async def get_prefix(message):
+    """Retrieves the prefix the bot is listening to with the message as a
+    context.
+
+    Args:
+        bot (nexcord.commands.Bot): The instance of
+        message (nextcord.Message): The message context to get the prefix of.
+
+    Returns:
+        Union[List[str], str]: A list of prefixes or a single prefix that the
+        bot is listening for.
+
+    https://nextcord.readthedocs.io/en/latest/ext/commands/api.html?#nextcord.ext.commands.Bot.get_prefix
+    """
     prefixes = ['$']
 
     # # Check to see if we are outside of a guild. e.g DM's etc.
@@ -33,17 +58,19 @@ def get_prefix(bot, message):
     return commands.when_mentioned_or(*prefixes)(bot, message)
 
 
-bot = commands.Bot(command_prefix='$')
-initial_extensions = ['cogs.greetings']
-
-
 @bot.event
 async def on_ready():
-    logger.info('Logged in as: NAME {bot.user.name}, ID {bot.user.id}')
+    """Called when the client is done preparing the data received from Discord.
+    Usually after login is successful and the Client.guilds and co. are filled
+    up.
 
-    # Changes our bots Playing Status. type=1(streaming) for a standard game you
-    # could remove type and url.
-    await bot.change_presence(activity=Game(name='Cogs Example'))
+    https://nextcord.readthedocs.io/en/latest/api.html#nextcord.on_ready
+    """
+    logger.info('Logged in as: NAME %s, ID %i', bot.user.name, bot.user.id)
+
+    # Changes our bots Playing Status. type=1 (streaming) for a standard game
+    # you could remove type and url.
+    await bot.change_presence(activity=Game(name='$help'))
 
 
 @bot.event
@@ -57,15 +84,30 @@ async def on_message_delete(message):
     `on_raw_message_delete()` event instead.
 
     This requires Intents.messages to be enabled.
-    """
-    pass
 
+    Args:
+        message (str): The deleted message.
+
+    https://nextcord.readthedocs.io/en/latest/api.html#nextcord.on_message_delete
+    """
+    return message
+
+
+@bot.event
+async def on_command_error(_, error):
+    """Command error handler.
+
+    https://nextcord.readthedocs.io/en/latest/ext/commands/api.html?#nextcord.ext.commands.Bot.on_command_error
+    """
+    if isinstance(error, CommandNotFound):
+        return
+    raise error
 
 
 if __name__ == '__main__':
     logger.info('Loading cogs')
-    for extension in initial_extensions:
-        bot.load_extension(extension)
-    
+    for cog in COGS:
+        bot.load_extension(cog)
+
     logger.info('Running bot')
     bot.run(TOKEN)
