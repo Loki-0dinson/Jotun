@@ -1,9 +1,19 @@
+# -*- coding: utf-8 -*-
+
+"""
+Project settings
+"""
+
 from os import environ
 import logging
 
+# Cogs
+COGS = [
+    'cogs.utils',
+]
 
 # ENVIRONMENT VARIABLES
-DEBUG = True if environ.get('DEBUG') == 'True' else False
+DEBUG = environ.get('DEBUG') in 'True'
 APP_ID = environ.get('APP_ID')
 PUBLIC_KEY = environ.get('PUBLIC_KEY')
 SECRET = environ.get('SECRET')
