@@ -38,3 +38,11 @@ class Utils(commands.Cog):
         await ctx.send(
             'https://tenor.com/view/dies-cat-dead-died-gif-13827091')
         await self.bot.close()
+
+
+def setup(bot):
+    """Adds the cog to the bot
+
+    This function gets called by `load_extension` in order to load the Cog
+    """
+    bot.add_cog(Utils(bot))
