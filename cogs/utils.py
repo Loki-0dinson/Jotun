@@ -21,7 +21,7 @@ class Utils(commands.Cog):
         """Shows latency in ms"""
         await ctx.send(f'{self.bot.latency * 1000:.2f}ms')
 
-    @commands.command()
+    @commands.command(hidden=True)
     @commands.is_owner()
     async def restart(self, ctx):
         """Refreshes all cogs"""
@@ -30,7 +30,7 @@ class Utils(commands.Cog):
 
         await ctx.send('Done!')
 
-    @commands.command()
+    @commands.command(hidden=True)
     @commands.is_owner()
     async def killbot(self, ctx):
         """Closes the bot"""
