@@ -28,7 +28,7 @@ handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 # Bot stuff
-bot = commands.Bot(command_prefix='$')
+bot = commands.Bot(command_prefix='$', activity=Game(name='$help'))
 ###############################################################################
 
 
@@ -67,10 +67,6 @@ async def on_ready():
     https://nextcord.readthedocs.io/en/latest/api.html#nextcord.on_ready
     """
     logger.info('Logged in as: NAME %s, ID %i', bot.user.name, bot.user.id)
-
-    # Changes our bots Playing Status. type=1 (streaming) for a standard game
-    # you could remove type and url.
-    await bot.change_presence(activity=Game(name='$help'))
 
 
 @bot.event
