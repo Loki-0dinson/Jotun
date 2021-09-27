@@ -10,6 +10,7 @@ import logging
 # Cogs
 COGS = [
     'cogs.utils',
+    'cogs.administration'
 ]
 
 # ENVIRONMENT VARIABLES
