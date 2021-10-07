@@ -4,7 +4,7 @@
 Utility commands
 """
 
-from nextcord.ext import commands, Bot, Context
+from nextcord.ext import commands
 
 from core.settings import COGS
 
@@ -13,17 +13,17 @@ class Utils(commands.Cog):
     """Cog that groups all the general use commands or that show useful
     information"""
 
-    def __init__(self, bot: Bot):
+    def __init__(self, bot: commands.Bot):
         self.bot = bot
 
     @commands.command()
-    async def ping(self, ctx: Context):
+    async def ping(self, ctx: commands.Context):
         """Shows latency in ms"""
         await ctx.send(f'{self.bot.latency * 1000:.2f}ms')
 
     @commands.command(hidden=True)
     @commands.is_owner()
-    async def restart(self, ctx: Context):
+    async def restart(self, ctx: commands.Context):
         """Refreshes all cogs"""
         for cog in COGS:
             self.bot.reload_extension(cog)
@@ -32,7 +32,7 @@ class Utils(commands.Cog):
 
     @commands.command(hidden=True)
     @commands.is_owner()
-    async def killbot(self, ctx: Context):
+    async def killbot(self, ctx: commands.Context):
         """Closes the bot"""
         await ctx.send('*Ugh')
         await ctx.send(
@@ -40,7 +40,7 @@ class Utils(commands.Cog):
         await self.bot.close()
 
 
-def setup(bot: Bot):
+def setup(bot: commands.Bot):
     """Adds the cog to the bot
 
     This function gets called by `load_extension` in order to load the Cog
