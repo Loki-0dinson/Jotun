@@ -9,7 +9,7 @@ import logging
 
 # Cogs
 COGS = [
-    'cogs.utils',
+    'cogs.utilities',
     'cogs.administration'
 ]
 
@@ -34,3 +34,8 @@ LANG_OPTIONS={
 }
 
 LANG = LANG_OPTIONS.get(environ.get('LANG'), 'EN')
+
+COLOR_ERROR   = 15882328 # red
+COLOR_INFO    = 5793266 # blue
+COLOR_SUCCESS = 6615640 # green
+COLOR_WARNING = 16770605  # yellow
