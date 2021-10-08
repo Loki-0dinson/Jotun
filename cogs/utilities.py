@@ -5,11 +5,12 @@ Utility commands
 """
 
 from nextcord.ext import commands
+from nextcord.member import Member
 
 from core.settings import COGS
 
 
-class Utils(commands.Cog):
+class Utilities(commands.Cog):
     """Cog that groups all the general use commands or that show useful
     information"""
 
@@ -39,10 +40,14 @@ class Utils(commands.Cog):
             'https://tenor.com/view/dies-cat-dead-died-gif-13827091')
         await self.bot.close()
 
+    @commands.command(aliases=[])
+    async def user_info(self, ctx: commands.Context, user: Member | None):
+        ...
+
 
 def setup(bot: commands.Bot):
     """Adds the cog to the bot
 
     This function gets called by `load_extension` in order to load the Cog
     """
-    bot.add_cog(Utils(bot))
+    bot.add_cog(Utilities(bot))
