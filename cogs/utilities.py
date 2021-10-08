@@ -11,13 +11,13 @@ from core.settings import COGS
 
 
 class Utilities(commands.Cog):
-    """Cog that groups all the general use commands or that show useful
-    information"""
+    """General use commands or commands that show useful information"""
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
     @commands.command()
+    @commands.cooldown(2, 5, commands.BucketType.user)
     async def ping(self, ctx: commands.Context):
         """Shows latency in ms"""
         await ctx.send(f'{self.bot.latency * 1000:.2f}ms')
@@ -40,7 +40,8 @@ class Utilities(commands.Cog):
             'https://tenor.com/view/dies-cat-dead-died-gif-13827091')
         await self.bot.close()
 
-    @commands.command(aliases=[])
+    @commands.command(aliases=['user', 'infouser', 'ui', 'iu'])
+    @commands.cooldown(2, 5, commands.BucketType.user)
     async def user_info(self, ctx: commands.Context, user: Member | None):
         ...
 
