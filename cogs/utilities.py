@@ -12,6 +12,7 @@ from core.settings import COGS
 
 class Utilities(commands.Cog):
     """General use commands or commands that show useful information"""
+    qualified_name = 'Utilities'
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
