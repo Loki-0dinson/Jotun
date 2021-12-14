@@ -12,6 +12,7 @@ from nextcord.ext.commands.errors import CommandNotFound
 
 from core.settings import TOKEN, DEBUG, LOG_LEVEL, LOG_FORMAT, \
     LOG_DATE_FORMAT, COGS
+from core.utils import CustomHelpCommand
 
 if DEBUG:
     from icecream import ic  # pylint: disable=W0611
@@ -29,6 +30,7 @@ logger.addHandler(handler)
 
 # Bot stuff
 bot = commands.Bot(command_prefix='$', activity=Game(name='$help'))
+bot.help_command = CustomHelpCommand()
 ###############################################################################
 
 
