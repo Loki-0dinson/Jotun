@@ -16,7 +16,7 @@ APP_ID="YOUR_DISCORD_APP_ID"
 PUBLIC_KEY="YOUR_DISCORD_APP_PUBLIC_KEY"
 SECRET="YOUR_DISCORD_APP_SECRET"
 TOKEN="YOUR_DISCORD_APP_TOKEN"
-DB_NAME="NAME_OF_THE_LOCAL_SQLite3_DB" # Any name is ok, the SQLite3 database file will be created using this name 
+DB_NAME="NAME_OF_THE_LOCAL_SQLite3_DB" # Any name is ok, the SQLite3 database file will be created using this name
 ```
 
 [OPTIONAL] If you are on a Debian-based distribution you may want to install these dependencies:
@@ -35,8 +35,8 @@ $ pipenv install && pipenv shell
 # Run the bot
 $ python main.py
 ```
-⚠ WARNING ⚠ By default, `python 3.9` will be used, if you want to use a diferent version just modify the `Pipfile` or
-specify it to `pipenv` with the `--python` flag (must be 3.6 or above, you can check your version with `python3 --version`)
+⚠ WARNING ⚠ By default, `python 3.10` will be used, if you want to use a diferent version just modify the `Pipfile` or
+specify it to `pipenv` with the `--python` flag (must be 3.10 or above, you can check your version with `python3 --version`)
 
 ## Requirements
 | Name  | Version | Package | Dev-Package |
