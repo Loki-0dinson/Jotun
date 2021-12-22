@@ -4,20 +4,20 @@
 Database class for the bot.
 """
 
-import logging
+from sqlite3 import OperationalError # pylint: disable=E0611
 from typing import List
+from logging import Formatter, getLogger, StreamHandler
 
 from core.settings import DB_NAME, LOG_LEVEL, LOG_FORMAT, LOG_DATE_FORMAT
 
-from sqlite3 import OperationalError # pylint: disable=E0611
 import aiosqlite
 
 
-logger = logging.getLogger(__name__)
+logger = getLogger(__name__)
 logger.setLevel(LOG_LEVEL)
-formatter = logging.Formatter(
+formatter = Formatter(
     fmt=LOG_FORMAT, datefmt=LOG_DATE_FORMAT, style='{')
-handler = logging.StreamHandler()
+handler = StreamHandler()
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 

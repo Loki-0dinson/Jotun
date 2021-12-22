@@ -4,10 +4,10 @@
 Utility commands
 """
 
+from core.settings import COGS
+
 from nextcord.ext import commands
 from nextcord.member import Member
-
-from core.settings import COGS
 
 
 class Utilities(commands.Cog):

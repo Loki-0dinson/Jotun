@@ -5,12 +5,12 @@ Project settings
 """
 
 from os import environ
-import logging
+from logging import DEBUG as L_DEBUG, INFO as L_INFO
 
 # Cogs
 COGS = [
+    'cogs.administration',
     'cogs.utilities',
-    'cogs.administration'
 ]
 
 # ENVIRONMENT VARIABLES
@@ -22,7 +22,7 @@ TOKEN = environ.get('TOKEN')
 DB_NAME = environ.get('DB_NAME')
 
 # LOGGING CONFIG
-LOG_LEVEL = logging.DEBUG if DEBUG else logging.INFO
+LOG_LEVEL = L_DEBUG if DEBUG else L_INFO
 LOG_FORMAT = '{levelname}: AT {asctime} IN {filename} MODULE {module} >>> \
     {message}'
 LOG_DATE_FORMAT = '%Y-%m-%d %H:%M:%S'

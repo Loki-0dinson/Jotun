@@ -4,15 +4,15 @@
 Database class for the bot.
 """
 
-import logging
+from logging import Formatter, getLogger, StreamHandler
 
-from nextcord import Game
-from nextcord.ext import commands
-from nextcord.ext.commands.errors import CommandNotFound
-
+from core.utils import CustomHelpCommand
 from core.settings import TOKEN, DEBUG, LOG_LEVEL, LOG_FORMAT, \
     LOG_DATE_FORMAT, COGS
-from core.utils import CustomHelpCommand
+
+from nextcord.ext.commands.errors import CommandNotFound
+from nextcord.ext import commands
+from nextcord import Game
 
 if DEBUG:
     from icecream import ic  # pylint: disable=W0611
@@ -20,11 +20,11 @@ if DEBUG:
 
 ###############################################################################
 # Logging
-logger = logging.getLogger(__name__)
+logger = getLogger(__name__)
 logger.setLevel(LOG_LEVEL)
-formatter = logging.Formatter(
+formatter = Formatter(
     fmt=LOG_FORMAT, datefmt=LOG_DATE_FORMAT, style='{')
-handler = logging.StreamHandler()
+handler = StreamHandler()
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
