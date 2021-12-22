@@ -5,11 +5,12 @@ Database class for the bot.
 """
 
 import logging
-from sqlite3 import OperationalError # pylint: disable=E0611
-
-import aiosqlite
+from typing import List
 
 from core.settings import DB_NAME, LOG_LEVEL, LOG_FORMAT, LOG_DATE_FORMAT
+
+from sqlite3 import OperationalError # pylint: disable=E0611
+import aiosqlite
 
 
 logger = logging.getLogger(__name__)
@@ -34,7 +35,7 @@ class DB:
     """
 
     @classmethod
-    async def select(cls, columns, table):
+    async def select(cls, columns: List[str], table: str):
         """
         Selects columns from a database
         """
@@ -45,7 +46,7 @@ class DB:
                 return _cursor
 
     @classmethod
-    async def select_where(cls, columns, table, where):
+    async def select_where(cls, columns: List[str], table: str, where: str):
         """
         Selects columns from a database where the values match the `where`
         expression
@@ -58,7 +59,7 @@ class DB:
                 return _cursor
 
     @classmethod
-    async def insert(cls, into_table, columns, values):
+    async def insert(cls, into_table: str, columns: List[str], values: List[str]):
         """Insert values into a table"""
         columns = ",".join(columns)
         values = ",".join(values)
@@ -70,7 +71,7 @@ class DB:
             await cursor.commit()
 
     @classmethod
-    async def _create(cls, table, columns):
+    async def _create(cls, table: str, columns: List[str]):
         """Creates a table with the given columns"""
         columns = ",".join(columns)
         async with aiosqlite.connect(DB_NAME) as cursor:
